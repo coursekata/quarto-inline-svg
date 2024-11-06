@@ -56,4 +56,4 @@ Now all computed plots will render as SVG and will be inlined as data URIs in th
 
 ## Example
 
-Here is the source code for a minimal example: [example.qmd](example.qmd). Try running `quarto render --to commonmark example.qmd`.
+Here is the source code for a minimal example: [example.qmd](example.qmd). Try running `quarto render example.qmd --to commonmark`.
