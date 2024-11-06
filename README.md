@@ -4,6 +4,8 @@ This filter is configured to run on any HTML or Markdown conversions. This filte
 
 The process is intentionally minimal so that you can retain all of the other features that Quarto offers regarding figure captions, labels, etc.
 
+> **Note**: This is similar to the [`embed-resources` Rendering option](https://quarto.org/docs/reference/formats/html.html#rendering). The difference is that this will only embed SVG files and not other resources.
+
 To illustrate, here is the first plot from `example.qmd` which has a few other examples using different Quarto features. This first markdown block is the YAML header and plot code for a basic plot that we want to render as SVG, run through the filter, and print to the output.
 
 ````markdown
