@@ -21,7 +21,7 @@ plot(mtcars)
 ```
 ````
 
-Without this filter, if you rendered this to `commonmark`, the output would be
+Without this filter, if you rendered this to `gfm` (GitHub-flavored markdown), the output would be
 
 ```markdown
 ![](example_files/figure-commonmark/unnamed-chunk-1-1.svg)
@@ -56,4 +56,4 @@ Now all computed plots will render as SVG and will be inlined as data URIs in th
 
 ## Example
 
-Here is the source code for a minimal example: [example.qmd](example.qmd). Try running `quarto render example.qmd --to commonmark`.
+Here is the source code for a minimal example: [example.qmd](example.qmd). Try running `quarto render example.qmd --to gfm`.
