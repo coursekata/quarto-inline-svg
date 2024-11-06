@@ -1,23 +1,3 @@
----Base64 encoder.
----@param data string
----@return string
----Copyright: Lua 5.1+ base64 v3.0 (c) 2009 by Alex Kloss <alexthkloss@web.de>.
----License: LGPL2.
----@source http://lua-users.org/wiki/BaseSixtyFour
-function base64(data)
-  local chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
-  return ((data:gsub('.', function(x)
-        local r, b = '', x:byte()
-        for i = 8, 1, -1 do r = r .. (b % 2 ^ i - b % 2 ^ (i - 1) > 0 and '1' or '0') end
-        return r;
-      end) .. '0000'):gsub('%d%d%d?%d?%d?%d?', function(x)
-        if (#x < 6) then return '' end
-        local c = 0
-        for i = 1, 6 do c = c + (x:sub(i, i) == '1' and 2 ^ (6 - i) or 0) end
-        return chars:sub(c + 1, c + 1)
-      end) .. ({ '', '==', '=' })[#data % 3 + 1])
-end
-
 ---Split a string by character sequence.
 ---@param str string a string that may have multiple lines in it
 ---@param chars string a character string to split on
@@ -89,7 +69,7 @@ if match_any(FORMAT, formats) then
   function Image(elem)
     if file_exists(elem.src) and ends_with(elem.src, ".svg") then
       local svg = read_svg(elem.src)
-      elem.src = "data:image/svg+xml;base64," .. base64(svg)
+      elem.src = "data:image/svg+xml;base64," .. quarto.base64.encode(svg)
       return { elem }
     end
   end
